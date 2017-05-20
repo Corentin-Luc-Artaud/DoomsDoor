@@ -4,11 +4,9 @@
 
 	<groupId>Vanargand</groupId>
 	<artifactId>DoomsDoor</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<version>0.1.0</version>
 
 	<name>DoomsDoor</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,4 +35,5 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<url>https://github.com/Corentin-Luc-Artaud/DoomsDoor</url>
 </project>
