@@ -17,6 +17,8 @@ public class HttpResponse {
 	private String lastModify;
 	private String content;
 	private String location;
+	private String upgrade;
+	private String webSocketAccept;
 	
 	
 	public void setLocation(String location) {
@@ -89,6 +91,14 @@ public class HttpResponse {
 		return res;
 	}
 
+	public void setUpgrade(String upgrade) {
+		this.upgrade = upgrade;
+	}
+
+	public void setWebSocketAccept(String webSocketAccept) {
+		this.webSocketAccept = webSocketAccept;
+	}
+
 	@Override
 	public String toString() {
 		return version + " " + statusCode + " " + statusText
@@ -101,7 +111,9 @@ public class HttpResponse {
 				+ (range != null && range.length() > 0 ? "\r\nContent-Range: " + range : "")
 				+ (contentLength > 0 ? "\r\nContent-Length: " + contentLength : "")
 				+ (expires != null && expires.length() > 0 ? "\r\n Expires: " + expires : "")
-				+ (lastModify != null && lastModify.length() > 0 ? "\r\nlastModify: " + lastModify : "")
+				+ (lastModify != null && lastModify.length() > 0 ? "\r\nLast-Modified: " + lastModify : "")
+				+ (upgrade != null && upgrade.length() > 0 ? "\r\nUpgrade: " + upgrade : "")
+				+ (webSocketAccept != null && webSocketAccept.length() > 0 ? "\r\nSec-WebSocket-Accept: " + webSocketAccept : "")
 				+"\r\n\r\n"+(content != null ? content : "");
 	}
 }

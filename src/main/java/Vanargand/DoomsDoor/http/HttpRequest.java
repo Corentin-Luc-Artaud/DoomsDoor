@@ -15,6 +15,9 @@ public class HttpRequest {
 	private String connection;
 	private String content;
 	private String ip;
+	private String webSocketKey;
+	private String WebSocketVersion;
+	private String upgrade;
 	
 	
 
@@ -52,6 +55,15 @@ public class HttpRequest {
 					break;
 				case "connection" :
 					this.connection = line[1];
+					break;
+				case "sec-webSocket-key":
+					this.webSocketKey = line[1];
+					break;
+				case "Sec-WebSocket-Version":
+					this.WebSocketVersion = line[1];
+					break;
+				case "Upgrade":
+					this.upgrade = line[1];
 					break;
 				default:
 					break;
@@ -146,6 +158,18 @@ public class HttpRequest {
 		this.ip = ip;
 	}
 	
+	public String getWebSocketKey() {
+		return webSocketKey;
+	}
+
+	public String getWebSocketVersion() {
+		return WebSocketVersion;
+	}
+
+	public String getUpgrade() {
+		return upgrade;
+	}
+
 	public int[] range() {
 		if (range.length() <= 0 || ! range.startsWith("bytes")) return null;
 		String [] util = (range.split(" ")[1]).split("-");
@@ -165,6 +189,9 @@ public class HttpRequest {
 				+ (cookies.size() > 0 ? "\r\nCookie: "+CookiesList(): "")
 				+ (contentLength > 0 ? "\r\nContent-Length: "+contentLength : "")
 				+ (connection != null && connection.length() > 0 ? "\r\nConnection: "+connection : "" )
+				+ (WebSocketVersion != null && WebSocketVersion.length() > 0 ? "\r\nSec-WebSocket-Version:"+WebSocketVersion : "")
+				+ (webSocketKey != null && webSocketKey.length() > 0 ? "\r\nSec-WebSocket-Key:"+webSocketKey : "")
+				+ (upgrade != null && upgrade.length() > 0 ? "\r\nSec-WebSocket-Key:"+upgrade : "")
 				+"\r\n\r\n"+(content != null ? content : "");
 	}
 	

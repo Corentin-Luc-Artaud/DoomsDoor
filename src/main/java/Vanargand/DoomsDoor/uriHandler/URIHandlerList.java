@@ -5,18 +5,18 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class HandlerList {
-	private Map<String, Handler> handlerList;
-	private static HandlerList instance = new HandlerList();
+public class URIHandlerList {
+	private Map<String, URIHandler> handlerList;
+	private static URIHandlerList instance = new URIHandlerList();
 	
-	private HandlerList() {
-		handlerList = new HashMap<String, Handler>();
+	private URIHandlerList() {
+		handlerList = new HashMap<String, URIHandler>();
 	}
 	
-	public Map<String, Handler> getHandlerList() {
+	public Map<String, URIHandler> getHandlerList() {
 		return handlerList;
 	}
-	public static HandlerList getInstance() {
+	public static URIHandlerList getInstance() {
 		return instance;
 	}
 	

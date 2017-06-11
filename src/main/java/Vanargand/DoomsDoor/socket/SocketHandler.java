@@ -10,7 +10,8 @@ import Vanargand.DoomsDoor.http.HttpRequest;
 import Vanargand.DoomsDoor.http.HttpResponse;
 import Vanargand.DoomsDoor.session.Session;
 import Vanargand.DoomsDoor.session.SessionStore;
-import Vanargand.DoomsDoor.uriHandler.HandlerList;
+import Vanargand.DoomsDoor.uriHandler.URIHandler;
+import Vanargand.DoomsDoor.uriHandler.URIHandlerList;
 import Vanargand.DoomsDoor.utils.Config;
 
 public class SocketHandler implements Runnable{
@@ -64,16 +65,19 @@ public class SocketHandler implements Runnable{
 		Cookie sessionCookie = new Cookie();
 		Session session = setSession(request, response, sessionCookie);
 		String key;
-		if ((key = HandlerList.getInstance().resolve(request.getRequest())) != null) {
-			HandlerList.getInstance().getHandlerList().get(key).handler(request, response, session);
+		URIHandler handler = null;
+		if ((key = URIHandlerList.getInstance().resolve(request.getRequest())) != null) {
+			handler = URIHandlerList.getInstance().getHandlerList().get(key);
+			handler.handler(request, response, session);
 		} else {
 			response.setStatus("404", "Not Found");
 		}
 		response.setVersion("HTTP/1.1");
 		response.setServer("Doom's Door");
-		response.setConnection("Close");
+		//response.setConnection("Close");
 		response.addCookie(sessionCookie);
 		socket.writeResponse(response);
+		if (handler != null) handler.afterSend(socket, session);
 		socket.close();
 	}
 }

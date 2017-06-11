@@ -85,4 +85,9 @@ public class HttpStandardSocket implements httpSocket{
 	public String getIp() {
 		return socket.getInetAddress().getHostAddress();
 	}
+
+	@Override
+	public Socket getSocket() {
+		return this.socket;
+	}
 }
