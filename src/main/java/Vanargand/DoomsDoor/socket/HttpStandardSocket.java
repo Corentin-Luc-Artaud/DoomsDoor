@@ -66,7 +66,6 @@ public class HttpStandardSocket implements httpSocket{
 			writer.write(response.toString());
 			writer.flush();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -76,7 +75,6 @@ public class HttpStandardSocket implements httpSocket{
 		try {
 			socket.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -1,6 +1,8 @@
 package Vanargand.DoomsDoor.http;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HttpRequest {
 	private String method;
@@ -168,6 +170,31 @@ public class HttpRequest {
 
 	public String getUpgrade() {
 		return upgrade;
+	}
+	
+	public String getPath() {
+		if (this.method.toLowerCase().equals("get")){
+			return request.split("?")[0];
+		} else if(this.method.toLowerCase().equals("post")){
+			return request;
+		}
+		return request;
+	}
+	
+	public Map<String, String> getParameters() {
+		Map<String, String> res = new HashMap<String, String>();
+		String params [] = new String[0];
+		if (this.method.toLowerCase().equals("get")){
+			String paramsList = this.request.split("?")[1];
+			params = paramsList.split("&");
+		} else if(this.method.toLowerCase().equals("post")){
+			params = this.content.split("\r\n");
+		}
+		for (int i = 0; i < params.length; ++i) {
+			String[] keyValue = params[i].split("=");
+			res.put(keyValue[0], keyValue[1]);
+		}
+		return res;
 	}
 
 	public int[] range() {
