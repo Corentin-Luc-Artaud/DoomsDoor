@@ -1,2 +1,2 @@
-imple http server
-ca be used to make a webapp
+Simple http server library
+can be used to make a webapp
