@@ -1,6 +1,5 @@
 package Vanargand.DoomsDoor.tests;
 
-import javax.xml.ws.handler.HandlerResolver;
 
 import Vanargand.DoomsDoor.eventStream.EventStream;
 import Vanargand.DoomsDoor.uriHandler.URIHandlerList;
@@ -16,7 +15,7 @@ public class testLoader implements Loader {
 		
 		EventStream evtstr = new EventStream(new MessageRandom());
 		URIHandlerList.getInstance().getHandlerList().put("/sse/", evtstr);
-		URIHandlerList.getInstance().getHandlerList().put("/index/", new DefaultHandler());
+		URIHandlerList.getInstance().getHandlerList().put("/", new DefaultHandler());
 
 	}
 

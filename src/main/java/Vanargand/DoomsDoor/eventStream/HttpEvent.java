@@ -6,17 +6,21 @@ public class HttpEvent {
 	private String id;
 	
 	public HttpEvent() {
-		this("", "");
+		this("", "", "");
 	}
-	public HttpEvent(String event, String data) {
+	public HttpEvent(String event, String data, String id) {
 		this.event = event;
 		this.data = data;
+		this.id = id;
 	}
 	public void setEvent(String event) {
 		this.event = event;
 	}
 	public void setData(String data) {
 		this.data = data;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 	@Override
