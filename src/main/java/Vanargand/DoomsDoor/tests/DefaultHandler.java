@@ -1,10 +1,10 @@
 package Vanargand.DoomsDoor.tests;
 
-import Vanargand.DoomsDoor.http.HttpRequest;
-import Vanargand.DoomsDoor.http.HttpResponse;
-import Vanargand.DoomsDoor.session.Session;
-import Vanargand.DoomsDoor.socket.httpSocket;
-import Vanargand.DoomsDoor.uriHandler.URIHandler;
+import Vanargand.DoomsDoor.web.http.HttpRequest;
+import Vanargand.DoomsDoor.web.http.HttpResponse;
+import Vanargand.DoomsDoor.web.session.Session;
+import Vanargand.DoomsDoor.web.socket.httpSocket;
+import Vanargand.DoomsDoor.web.uriHandler.URIHandler;
 
 public class DefaultHandler implements URIHandler{
 	private static final String Html = "<!DOCTYPE html><html><head></head><body>\r\n"

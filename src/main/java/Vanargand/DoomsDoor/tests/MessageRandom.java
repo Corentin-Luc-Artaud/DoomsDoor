@@ -2,9 +2,9 @@ package Vanargand.DoomsDoor.tests;
 
 import java.util.Random;
 
-import Vanargand.DoomsDoor.eventStream.EventStreamHandler;
-import Vanargand.DoomsDoor.eventStream.HttpEvent;
-import Vanargand.DoomsDoor.session.Session;
+import Vanargand.DoomsDoor.web.eventStream.EventStreamHandler;
+import Vanargand.DoomsDoor.web.eventStream.HttpEvent;
+import Vanargand.DoomsDoor.web.session.Session;
 
 public class MessageRandom implements EventStreamHandler{
 

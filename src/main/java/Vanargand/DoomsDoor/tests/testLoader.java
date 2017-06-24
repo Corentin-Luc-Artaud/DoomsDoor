@@ -1,10 +1,10 @@
 package Vanargand.DoomsDoor.tests;
 
 
-import Vanargand.DoomsDoor.eventStream.EventStream;
-import Vanargand.DoomsDoor.uriHandler.URIHandlerList;
-import Vanargand.DoomsDoor.utils.DefaultLoader;
-import Vanargand.DoomsDoor.utils.Loader;
+import Vanargand.DoomsDoor.web.eventStream.EventStream;
+import Vanargand.DoomsDoor.web.uriHandler.URIHandlerList;
+import Vanargand.DoomsDoor.web.utils.DefaultLoader;
+import Vanargand.DoomsDoor.web.utils.Loader;
 
 public class testLoader implements Loader {
 
