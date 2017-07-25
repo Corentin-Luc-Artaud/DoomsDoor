@@ -6,7 +6,7 @@ import Vanargand.DoomsDoor.web.server.StandardServer;
 import Vanargand.DoomsDoor.web.server.ThreadPool;
 
 
-public class Starter 
+public class ServerStarter 
 {
     public static void start(Loader loader) throws Exception
     {

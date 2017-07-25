@@ -25,7 +25,9 @@ public class Config extends HashMap<String, String>{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 		Config.class.getResourceAsStream(config)));
 		String line;
+		System.out.println("Config:");
 		while ((line = reader.readLine()) != null) {
+			System.out.println(line);
 			if (line.startsWith("//")) continue;
 			String [] keyValue = line.split(" = ", 2);
 			if (keyValue.length != 2) continue;

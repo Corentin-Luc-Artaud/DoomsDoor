@@ -48,7 +48,7 @@ public class HttpStandardSocket implements httpSocket{
 			String data = new String();
 			try {
 				for (int i = 0; i < res.getContentLength(); ++i) {
-						data += ""+reader.read();
+						data += (char)reader.read();
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -56,7 +56,6 @@ public class HttpStandardSocket implements httpSocket{
 			}
 			res.setContent(data);
 		}
-		System.out.println();
 		return res;
 	}
 

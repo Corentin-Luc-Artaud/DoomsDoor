@@ -185,14 +185,20 @@ public class HttpRequest {
 		Map<String, String> res = new HashMap<String, String>();
 		String params [] = new String[0];
 		if (this.method.toLowerCase().equals("get")){
-			String paramsList = this.request.split("?")[1];
-			params = paramsList.split("&");
+			if (this.request.contains("?")){
+				String parts [] = this.request.split("\\?");
+				if (parts.length > 1) {
+					String paramsList = parts[1];
+					params = paramsList.split("&");
+				}
+			}
 		} else if(this.method.toLowerCase().equals("post")){
-			params = this.content.split("\r\n");
+			params = this.content.split("&");
 		}
 		for (int i = 0; i < params.length; ++i) {
 			String[] keyValue = params[i].split("=");
-			res.put(keyValue[0], keyValue[1]);
+			if(keyValue.length > 1)
+				res.put(keyValue[0], keyValue[1]);
 		}
 		return res;
 	}

@@ -27,7 +27,6 @@ public class EventStream implements URIHandler{
 			HttpEvent event = new HttpEvent();
 			handler.loop(event, session);
 			try {
-				System.out.println(event.toString());
 				socket.getSocket().getOutputStream().write(event.toString().getBytes());
 			} catch (IOException e) {
 				e.printStackTrace();

@@ -44,7 +44,6 @@ public class SocketHandler implements Runnable{
 				session = createSession(response);
 			}
 		} else {
-			System.err.println("pas de cookie de session");
 			session = createSession(response);
 		}
 		sessionCookie.setKey(Config.getInstance().get("sessionToken"));
@@ -73,11 +72,12 @@ public class SocketHandler implements Runnable{
 			response.setStatus("404", "Not Found");
 		}
 		response.setVersion("HTTP/1.1");
-		response.setServer("Doom's Door");
+		String serverName = Config.getInstance().get("ServerName");
+		response.setServer(serverName != "0" ? serverName :"Doom's Door");
 		//response.setConnection("Close");
 		response.addCookie(sessionCookie);
 		socket.writeResponse(response);
 		if (handler != null) handler.afterSend(socket, session);
-		socket.close();
+		if (socket != null) socket.close();
 	}
 }
